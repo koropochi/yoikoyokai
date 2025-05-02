@@ -164,4 +164,19 @@ header p {
   color: #d65c2f;
 }
 
+.pagination {
+  text-align: center;
+  margin: 20px 0;
+}
+.pagination button {
+  margin: 0 5px;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.pagination button.active {
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+}
 
