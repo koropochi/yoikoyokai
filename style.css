@@ -1,160 +1,167 @@
-/* 和風ベースの色とフォント */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: "Yu Mincho", "Hiragino Mincho Pro", serif;
-    margin: 0;
-    padding: 0;
-    background: url("images/washi.jpg") repeat;
-    background-size: cover;
-    color: #3c2f2f;
+  font-family: 'Noto Serif JP', serif;
+  background: url('images/washi.jpg') repeat;
+  background-color: #fdf6ea;
+  color: #3e2a2b;
+  padding: 2rem;
+  line-height: 1.8;
 }
 
-/* ヘッダー */
+/* ヘッダー（巻物風） */
 header {
-    background: #9e2a2b; /* 深紅 */
-    color: #fffef9;
-    text-align: center;
-    padding: 2rem 1rem;
-    font-size: 2rem;
-    letter-spacing: 2px;
-    border-bottom: 8px double #5c1f1f;
+  background: linear-gradient(to right, #f3edd8, #fdf6ea);
+  border: 5px double #7f5a3c;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 6px 20px rgba(60, 40, 30, 0.15);
+  border-radius: 16px;
 }
 
-/* ギャラリー */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
+header h1 {
+  font-size: 3rem;
+  color: #4b2f1f;
+  text-shadow: 1px 1px 2px #dccab5;
+  margin-bottom: 0.5rem;
 }
 
-/* カード（和紙風） */
-.card {
-    background: #fffef9;
-    border: 1px solid #d1bfa3;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(80, 60, 50, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;
+header p {
+  font-size: 1.2rem;
+  color: #7c5a40;
 }
 
-.card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 12px 20px rgba(60, 40, 40, 0.2);
+/* 妖怪一覧 */
+.main-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
-/* カード内画像 */
-.card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+.yokai-item {
+  background: #fffdf8;
+  border: 2px solid #c7ab86;
+  border-radius: 16px;
+  box-shadow: 0 5px 12px rgba(40, 30, 20, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-/* カード中身 */
-.card-content {
-    padding: 1.5rem;
+.yokai-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(40, 30, 20, 0.2);
 }
 
-.card-content h2 {
-    font-size: 1.4rem;
-    margin: 0 0 0.5rem;
-    color: #402d22;
-    border-left: 5px solid #9e2a2b;
-    padding-left: 0.5rem;
+.yokai-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 1px dashed #bfa98c;
 }
 
-.card-content p {
-    font-size: 1rem;
-    color: #5c4a3b;
+/* 妖怪名 */
+.yokai-item p {
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding: 1rem;
+  background: #8c4e2a;
+  color: #fffefb;
+  letter-spacing: 1.5px;
+  text-align: center;
+  border-top: 1px solid #a8704d;
 }
 
-/* フッター */
-footer {
-    background: #9e2a2b;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.9rem;
-    border-top: 4px solid #5c1f1f;
+.yokai-item a {
+  text-decoration: none;
+  color: inherit; /* リンクの青色も消す場合 */
 }
 
-/* フィルターボタン */
+.yokai-item a p {
+  text-decoration: none;
+}
+
+/* フィルター */
 .filter {
-    text-align: center;
-    padding: 1.5rem 0 0;
+  text-align: center;
+  margin: 3rem 0 1rem;
 }
 
 .filter button {
-    background: #5c1f1f;
-    border: none;
-    color: #fffef9;
-    padding: 0.6rem 1.2rem;
-    margin: 0.3rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s;
-    font-family: inherit;
+  background: #7e4b2a;
+  border: none;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  margin: 0.4rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .filter button:hover {
-    background: #7b2e2e;
+  background: #a45f3a;
+  transform: scale(1.05);
 }
 
-/* 詳細ページ全体 */
-.detail {
-    padding: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-/* 詳細ページの内容ボックス */
+/* 詳細ページ */
 .detail-container {
-    background: #fffef9;
-    border: 1px solid #d1bfa3;
-    border-radius: 16px;
-    box-shadow: 0 4px 10px rgba(80, 60, 50, 0.15);
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 2rem;
+  background: #fffaf3;
+  border: 2px solid #c5ae8b;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(40, 30, 20, 0.15);
 }
 
-/* 大きめ画像表示（修正後） */
 .detail-container img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #c5ae8b;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
 }
 
-/* 説明テキスト */
 .detail-text h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: #402d22;
-    border-left: 5px solid #9e2a2b;
-    padding-left: 0.5rem;
+  font-size: 2.2rem;
+  color: #4e3020;
+  border-left: 6px solid #a24a2a;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
 }
 
 .detail-text p {
-    font-size: 1.1rem;
-    color: #4c3c2f;
-    line-height: 1.8;
-    margin-bottom: 2rem;
+  font-size: 1.15rem;
+  color: #3c2b23;
+  line-height: 2;
 }
 
 /* 戻るリンク */
 .back-link {
-    text-decoration: none;
-    color: #9e2a2b;
-    font-weight: bold;
-    border-bottom: 1px dashed #9e2a2b;
-    transition: color 0.3s;
+  display: inline-block;
+  margin-top: 2rem;
+  font-weight: bold;
+  color: #a24a2a;
+  text-decoration: none;
+  border-bottom: 1px dashed #a24a2a;
+  transition: color 0.3s;
 }
 
 .back-link:hover {
-    color: #c83c3c;
+  color: #d65c2f;
 }
 
 

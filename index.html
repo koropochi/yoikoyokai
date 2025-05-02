@@ -1,58 +1,52 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>イラスト図鑑（リッチ版・JPEG対応）</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏮 よい子の妖怪図鑑 🏮</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>🏮 よい子の妖怪図鑑 🏮</h1>
-    </header>
+  <header>
+    <div class="header-container">
+      <h1>🏮 よい子の妖怪図鑑 🏮</h1>
+      <p>日本の妖怪たちを紹介します。各妖怪の詳細ページへリンクしています。</p>
+    </div>
+  </header>
 
-    <section class="filter">
-    <button onclick="filterSelection('all')">すべて</button>
-    <button onclick="filterSelection('哺乳類')">哺乳類</button>
-    <button onclick="filterSelection('鳥類')">鳥類</button>
-    <button onclick="filterSelection('爬虫類')">爬虫類</button>
-</section>
+<main class="main">
+  <section class="main-container" id="yokai-list"></section>
 
-    <main class="gallery">
-    <a class="card 哺乳類" href="detail-animal1.html">
-        <img src="images/animal1.png" alt="動物1">
-        <div class="card-content">
-            <h2>動物の名前</h2>
-            <p>この動物はとても珍しい哺乳類です。</p>
-        </div>
-    </a>
+  <script>
+    const yokaiNames = [
+      "白溶裔", "瀬戸大将", "松明丸", "算盤小僧", "琴古主", "", "", "", "", "",
+      "", "", "", "", "", "", "", "", "", "",
+      "", "", "", "", "", "", "", "", "", "",
+      "", "", "", "", "", "", "", "", "", "",
+      "", "", "", "", "", "", "", "", "", "",
+      "", ""
+    ];
 
-    <a class="card 鳥類" href="detail-animal2.html">
-        <img src="images/animal2.png" alt="動物2">
-        <div class="card-content">
-            <h2>動物の名前</h2>
-            <p>この動物は空を飛ぶ鳥類です。</p>
-        </div>
-    </a>
+    const container = document.getElementById("yokai-list");
+
+    yokaiNames.forEach((name, index) => {
+      const num = index + 1;
+      const yokaiName = name || `妖怪${num}`;
+      const html = `
+        <div class="yokai-item">
+          <a href="detail-yokai${num}.html">
+            <img src="images/yokai${num}.png" alt="${yokaiName}">
+            <p>${yokaiName}</p>
+          </a>
+        </div>`;
+      container.insertAdjacentHTML('beforeend', html);
+    });
+  </script>
 </main>
 
-    <footer>
-        <p>© 2025 イラスト図鑑</p>
-    </footer>
 
-    <script>
-function filterSelection(category) {
-  let cards = document.querySelectorAll('.card');
-  if (category === "all") category = "";
-  cards.forEach(card => {
-    if (card.className.indexOf(category) > -1) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
-  });
-}
-</script>
-
-
+  <footer>
+    <p>© 2025 妖怪図鑑</p>
+  </footer>
 </body>
 </html>
